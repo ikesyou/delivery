@@ -1,0 +1,17 @@
+<P class="cart-title">ご注文内容</P>
+
+<div class="cart-content">
+    <% @carts.each do |cart| %>
+    <div class="cart_item"
+        <h><%=cart.name%></h>
+        <h><%=cart.price%></h><br>
+        <h><%=cart.count%>個</h>
+        
+        <%=form_tag("/#{cart.id}/destroy") do %>
+        <input class="destroy" value="削除" type="submit">
+        <%end%>
+    </div>    
+    <%end%>
+    
+</div>
+<h1>合計:￥<%=@totalPrice%>(税込み)</h1>

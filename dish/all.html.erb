@@ -1,0 +1,38 @@
+<div class="all-header">
+    <h1 class="eat show">
+        <%=image_tag'eat0.jpg' %>
+    </h1>
+    <h1 class="eat">
+        <%=image_tag'eat1.jpg' %>
+    </h1>
+    <h1 class="eat">
+        <%=image_tag'eat2.jpg' %>
+    </h1>
+    <h1 class="eat">
+        <%=image_tag'eat3.jpg' %>
+    </h1>
+    <h1 class="eat">
+        <%=image_tag'eat4.jpg' %>
+    </h1>
+    <a class="pre btn"><</a>
+    <a class="next btn">></a>
+</div>
+
+<div class="dish">
+
+<% @dishes.each do |dish|%>
+    
+    <div class="item">
+        <img src="<%="/dishes/#{dish.id}.jpg"%>"><br>
+        <%=dish.name %><br>
+        <%="値段：#{dish.price}円"%><br>
+        <%=dish.content%><br>
+        <%=form_tag("/#{dish.id}/update") do %>
+        <input value="0" name="count">個
+        <input value="カートへ" type="submit">
+        <%end%>
+    </div>
+<%end%>
+
+
+</div>
